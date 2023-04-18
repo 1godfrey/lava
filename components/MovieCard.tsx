@@ -19,7 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
     const { openModal } = useInfoModal();
 
     return (
-        <div className="group bg-zinc-900 col-span relative h-[12vw]">
+        <div className="group bg-white col-span relative h-[12vw]">
             <img 
             className="
                 cursor-pointer 
@@ -65,7 +65,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
         src={data.thumbnailUrl} alt="Thumbnail" />
         <div className="
             z-10
-            bg-zinc-800
+            bg-custom1
             p-2
             lg:p-4
             absolute

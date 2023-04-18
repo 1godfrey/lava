@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import { BsChevronDown, BsSearch, BsBell } from 'react-icons/bs';
+import { MdOutlineFavoriteBorder } from 'react-icons/md';
+import { FiMessageSquare, FiUpload } from 'react-icons/fi';
+import { RiCommunityLine } from 'react-icons/ri';
 
 import MobileMenu from "./MobileMenu";
 import NavbarItem from "./NavbarItem";
 import AccountMenu from "./AccountMenu";
+import { AiOutlineHome } from "react-icons/ai";
+import { FaUserFriends } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const TOP_OFFSET = 66;
 
@@ -36,6 +42,8 @@ const Navbar = () => {
         setShowAccountMenu((current) => !current)
     }, []);
 
+    const router = useRouter();
+
     return (
         <nav className="w-full fixed z-40">
             <div
@@ -48,26 +56,30 @@ const Navbar = () => {
                 items-center
                 transition
                 duration-500
-                ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}
+                ${showBackground ? 'bg-white bg-opacity-90 text-black' : ''}
                 `}
             >
 
-                <img className="h-4 lg:h-7" src="/images/logo.png" alt=""/>
+
+                <img onClick={() => router.push('/')} className="h-4 lg:h-7 hover:animate-bounce cursor-pointer" src="/images/logodark2.png" alt=""/>
                 <div 
                 className="
                     flex-row
                     ml-8
+                    mt-4
                     gap-7
                     hidden
                     lg:flex
                 "
                 >
-                    <NavbarItem label="Home" />
-                    <NavbarItem label="Series" />
-                    <NavbarItem label="Films" />
-                    <NavbarItem label="New & Popular" />
-                    <NavbarItem label="My List" />
-                    <NavbarItem label="Browse by Languages" />
+                    <div className="flex flex-col items-center"><AiOutlineHome onClick={() => router.push('/')} className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300"  size={30}/><NavbarItem label="Home" /></div>
+                    {/* <NavbarItem label="Series" /> */}
+                    <div className="flex flex-col items-center"><FiUpload className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300"  size={30}/><NavbarItem label="Upload" /></div>
+                    <div className="flex flex-col items-center"><RiCommunityLine className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300"  size={30}/><NavbarItem label="Community" /></div>
+                    <div className="flex flex-col items-center"><FaUserFriends className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300"  size={30}/><NavbarItem label="Friends" /></div>
+                    <div className="flex flex-col items-center"><FiMessageSquare className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300"  size={30}/><NavbarItem label="Messages" /></div>
+                    <div className="flex flex-col items-center"><MdOutlineFavoriteBorder className="text-white cursor-pointer group hover:scale-125 hover:text-custom transition duration-300" size={30}/><NavbarItem label="My Favorites" /></div>
+                    {/* <NavbarItem label="Browse by Languages" /> */}
                 </div>
                 <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative ">
                     <p className="text-white text-sm">Browse</p>
@@ -76,15 +88,15 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-row ml-auto gap-7 items-center">
                     <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
-                        <BsSearch />
+                        <BsSearch className="hover:scale-125 hover:text-custom transition duration-300 " size={30}/>
                     </div>
                     <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
-                        <BsBell />
+                        <BsBell className="hover:scale-125 hover:text-custom transition duration-300" size={30} />
                     </div>
 
                     <div onClick={toggleAccountMenu} className="flex flex-row items-center gap-2 cursor-pointer relative">
                         <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                            <img src="/images/default-blue.png" alt=""/>
+                            <img src="/images/f26d21.png" alt=""/>
                         </div>
                         <BsChevronDown className={`text-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`}/>
                         <AccountMenu visible={showAccountMenu}/>

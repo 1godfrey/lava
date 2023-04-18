@@ -56,7 +56,7 @@ const InfoModal: React.FC<infoModalProps> = ({ visible, onClose }) => {
                 duration-300
                 relative
                 flex-auto
-                bg-zinc-900
+                bg-custom1
                 drop-shadow-md
                 `}>
                     <div className='relative h-96'>

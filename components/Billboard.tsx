@@ -76,8 +76,8 @@ const Billboard = () => {
                     hover:bg-opacity-20
                     transition
                     ">
-                        <AiOutlineInfoCircle className="mr-1"/>
-                        More Info
+                        <AiOutlineInfoCircle className="mr-1 items-center"/>
+                        <div className="">More Info</div>
                     </button>
                 </div>
             </div>

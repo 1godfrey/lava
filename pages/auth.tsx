@@ -48,45 +48,55 @@ const Auth = () => {
 
 
     return (
-        <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
-            <div className="bg-black h-full w-full lg:bg-opacity-50 ">
+        <div className="relative h-[1220px] w-full bg-custom z-30 bg-repeat bg-center bg-cover">
+            <div className="bg-white h-full w-full lg:bg-opacity-10 ">
                 <nav className="px-12 py-5">
                     <img src="/images/logo.png" alt="Logo" className="h-12" />
 
                 </nav>
                 <div className="flex justify-center">
-                    <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full">
+                    <div className="bg-blue-200 bg-opacity-30 px-16 py-16 self-center -mt-6 lg:w-2/5 lg:max-w-md rounded-md w-full">
                         <h2 className="text-white text-4xl mb-8 font-semibold">
-                            {variant === 'login' ? 'Sign in' : 'Register'} 
+                            {variant === 'login' ? 'Sign in . . .' : 'Register . . .'} 
                         </h2>
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 fill-white">
                             {variant === 'register' && (
-                        <Input
+                         <div className="bg-white">
+                            <Input
+                       
                                 label="Username"
                                 onChange={(ev: any) => setName(ev.target.value)}
                                 id="name"
                                 value={name}
+                                className="bg-white"
                             />
+                            </div>
                             )}
+                            <div className="bg-white">
                             <Input
                                 label="Email"
                                 onChange={(ev: any) => setEmail(ev.target.value)}
                                 id="email"
                                 type="email"
                                 value={email}
+                                className="bg-white"
                             />
+                            </div>
+                            <div className="bg-white">
                              <Input
                                 label="Password"
                                 onChange={(ev: any) => setPassword(ev.target.value)}
                                 id="password"
                                 type="password"
                                 value={password}
+                                className="bg-white"
                             />
+                            </div>
                         </div>
-                        <button onClick={variant === 'login' ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
-                            {variant === 'login' ? 'Login' : 'Sign up'}
+                        <button onClick={variant === 'login' ? login : register} className="bg-custom py-3 text-white rounded-md w-full mt-6 hover:bg-custom1 transition">
+                            {variant === 'login' ? 'Login!' : 'Sign Up!'}
                         </button>
-                        <div className="flex flex-row items-center gap-4 mt-8 justify-center">
+                        <div className="flex flex-row items-center gap-2 mt-3 justify-center">
                                 <div
                                     onClick={() => signIn('google', { callbackUrl: '/profiles' })}
                                     className="
@@ -122,10 +132,10 @@ const Auth = () => {
                                         <FaGithub size={30}/>
                                 </div>
                         </div>
-                        <p className="text-neutral-500 mt-12">
-                            {variant === 'login' ? 'First time using Netflix?' : 'Already have an account?'}
+                        <p className="text-neutral-500 mt-3 text-center">
+                            {variant === 'login' ? 'First time using Lava?' : 'Already have an account?'}
                             <span onClick={toggleVariant} className="text-white ml-1 hover:underline cursor-pointer">
-                                {variant === 'login' ? 'Create an account' : 'Login'}
+                                {variant === 'login' ? 'Create an account' : 'Login!'}
                             </span>
                         </p>
                     </div>

@@ -6,6 +6,7 @@ interface InputProps {
     value: string;
     label: string;
     type?: string;
+    className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -30,8 +31,8 @@ const Input: React.FC<InputProps> = ({
                 pb-1
                 w-full
                 text-md
-                text-white
-                bg-neutral-700
+                text-black
+                bg-white
                 appearance-none
                 focus:outline-none
                 focus:ring-0
