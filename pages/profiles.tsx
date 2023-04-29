@@ -53,13 +53,19 @@ useEffect(() => {
     return (
         <div className="flex items-center justify-center h-full bg-custom">
           <div className="flex flex-col">
-            <div className="absolute top-80 left-[520px] text-white animate-bounce transition duration-1000">
-            pssssh, click the volcano <div className="top-10"><AiOutlineRightCircle className="absolute  text-white left-32 -bottom-6" size={30} />
+            <div className="absolute top-72 left-[600px] text-white animate-bounce transition duration-1000">
+            <div className="">What do you want to do?</div>
+            <div className="top-10 animate-bounce">
+            <div onClick={() => router.push('/connect')}>
+            <MdOutlineVolcano className="absolute -left-36 -bottom-20 cursor-pointer" size={150} />
+            <MdVolcano className="absolute z-40 -left-36 -bottom-20 opacity-0 cursor-pointer hover:opacity-100 transition duration-300" size={150} />
+            </div>
             <div onClick={() => router.push('/')}>
-            <MdOutlineVolcano className="absolute left-44 -bottom-20 cursor-pointer" size={200} />
-            <MdVolcano className="absolute z-40 left-44 -bottom-20 opacity-0 cursor-pointer hover:opacity-100 transition duration-300" size={200} /></div>
+            <MdOutlineVolcano className="absolute left-40 -bottom-20 cursor-pointer" size={150} />
+            <MdVolcano className="absolute z-40 left-40 -bottom-20 opacity-0 cursor-pointer hover:opacity-100 transition duration-300" size={150} /></div>
             </div>
             </div>
+            
             <h1 className="text-3xl md:text-6xl text-white text-center">{phrase}</h1> {/* Use the state variable */}
             <div className="flex items-center justify-center gap-8 mt-10">
               <div>
@@ -97,6 +103,8 @@ useEffect(() => {
               </div>
             </div>
           </div>
+          <div className="absolute top-[385px] left-[485px] text-2xl text-white animate-bounce font-bold">Connect</div>
+          <div className="absolute top-[385px] left-[810px] text-2xl text-white animate-bounce font-bold">Relax</div>
         </div>
       );
       
